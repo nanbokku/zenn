@@ -1,14 +1,14 @@
 ---
 title: 'ステンシルバッファで壁に隠れたオブジェクトのシルエットを描画する'
-emoji: '🕌'
+emoji: '🎨'
 type: 'tech' # tech: 技術記事 / idea: アイデア
 topics: ['unity', 'shader']
-published: false
+published: true
 ---
 
 ステンシルバッファの勉強で，壁に隠れたオブジェクトのシルエット表現をやってみました！
 
-![画像]()
+![](https://storage.googleapis.com/zenn-user-upload/ta4cievl3nw0jjupdcneqyv3mxph)
 
 今回実現したかったことは，
 
@@ -16,6 +16,9 @@ published: false
 - 障害物ではないオブジェクトでキャラクターが隠れている場合はシルエットを表示しない
 
 です．
+
+今回はキャラクターオブジェクトとしてオレンジ色の Sphere，障害物用オブジェクトとして青色の Cube，障害物ではないその他のオブジェクトとして白色の Cube を使って実装しました．
+シルエット部分はチェッカー模様で描画しています．
 
 ステンシルバッファを使ったシルエット表現の実装は調べるといくつか出てきたのですが，**障害物の手前にキャラクターがいる場合でもシルエットが表示されてしまう**という実装になっていました．
 
@@ -89,7 +92,7 @@ Pass
 このときの描画イメージとしてはこんな感じになります．
 本来はカラーチャネルの書き込みを無効化しているため何も描画されませんが，分かりやすさのために白色にしています．
 
-![画像]()
+![](https://storage.googleapis.com/zenn-user-upload/2eztwxoc9ivn86bdko712c91opth)
 
 ## 二つ目の`Pass`ブロック
 
@@ -114,7 +117,7 @@ Pass
 
 このときの描画イメージはこんな感じになります．
 
-[画像]()
+![](https://storage.googleapis.com/zenn-user-upload/uy1wmzslb1tjyaahd5ke5tvocogc)
 
 ## 三つ目の`Pass`ブロック
 
@@ -139,7 +142,7 @@ Pass
 
 最終的に描画されるイメージはこんな感じになります．
 
-[画像]()
+![](https://storage.googleapis.com/zenn-user-upload/mtm0xrtxfwu6q0tqf1z8b4qvzlhn)
 
 # `Queue`について
 
@@ -180,6 +183,8 @@ SubShader
 障害物ではないオブジェクトには「**障害物用シェーダーを付けなければよい**」だけです．
 
 簡単ですね．
+
+![](https://storage.googleapis.com/zenn-user-upload/iy3i5mb8y5xg2abiapu97lnz7441)
 
 # 最後に
 
