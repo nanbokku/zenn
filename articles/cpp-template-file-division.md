@@ -94,3 +94,9 @@ template class TestTemplate2<double>;
 そのため、コンパイラは`TestTemplate2<T>`を未知のクラスとして扱う。
 そうなると、`TestTemlate2<T>::InnerStruct`はクラス名、メンバ変数のどちらに該当するかコンパイラはわからない。
 このとき、**特に指定しないと、コンパイラはメンバ変数として取り扱う**ので、`InnerStruct`が型名であることを明示的に示すために、`typename`を指定する。
+
+# 参考サイト
+
+ありがとうございました．
+
+https://teratail.com/questions/123776
